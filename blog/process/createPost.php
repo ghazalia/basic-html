@@ -18,7 +18,7 @@ if ($stmt = $conn->prepare($sql)) {
   if ($stmt->affected_rows) {
     header('Location: http://localhost:8080');
   } else {
-    header('Location: http://localhost:8080/login.php');
+    header('Location: http://localhost:8080/login.php'); // error cannot insert data
   }
 } else {
   // error

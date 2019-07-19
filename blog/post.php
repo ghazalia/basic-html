@@ -1,4 +1,23 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+include_once __DIR__ . '/db/connection.php';
+include_once __DIR__ . '/process/functions.php';
+?>
+
+<?php
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+  header('Location: http://localhost:8080');
+}
+
+$id = $_GET['id'];
+$results = listArticle($conn, $id);
+
+// if result null return to index
+if (!isset($results)) {
+  header('Location: http://localhost:8080');
+}
+?>
+
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('img/post-bg.jpg')">
   <div class="overlay"></div>
